@@ -1,0 +1,19 @@
+name: Testes Cypress
+
+# Executa o pipeline a cada push e a cada pull request
+on:
+  push:
+  pull_request:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Baixa o código do repositório
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Instala as dependências (npm ci) e executa todos os testes Cypress
+      - name: Executar testes Cypress
+        uses: cypress-io/github-action@v7
